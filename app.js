@@ -52,7 +52,7 @@ const store=MongoStore.create({
   touchAfter:24*3600,
 });
 
-store.on("error",()=>{
+store.on("error",(err)=>{
   console.log("Error in MONGO SESSION STORE",err);
 });
 
@@ -67,6 +67,7 @@ const sessionOptions={
     httpOnly: true,
   },
 };
+
 
 
 app.use(session(sessionOptions));
@@ -88,7 +89,9 @@ app.use((req,res,next)=>{
 });
 
 
- 
+ app.get('/',(req,res)=>{
+  res.render("home.ejs");
+});
 
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter)

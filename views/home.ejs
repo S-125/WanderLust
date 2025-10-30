@@ -1,0 +1,37 @@
+<% layout ("/layouts/boilerplate")%>
+<% layout("/layouts/boilerplate") %>
+
+<section style="
+  height: 85vh;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+">
+  <div style="
+    background: rgba(0, 0, 0, 0.5);
+    padding: 60px;
+    border-radius: 20px;
+    max-width: 700px;
+  ">
+    <h1 style="font-size: 3rem; margin-bottom: 20px; font-weight: 700;">Welcome to WanderLust</h1>
+    <p style="font-size: 1.2rem; margin-bottom: 30px;">
+      Discover your next unforgettable stay — explore destinations around the world.
+    </p>
+    <a href="/listings" style="
+      background-color: #ff385c;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    "
+    onmouseover="this.style.backgroundColor='#e31c5f'"
+    onmouseout="this.style.backgroundColor='#ff385c'">
+      Start Exploring
+    </a>
+  </div>
+</section>
