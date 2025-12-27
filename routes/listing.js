@@ -7,7 +7,22 @@ const multer = require('multer');
 const {storage}=require("../cloudConfig.js")
 const upload = multer({ storage });
 const listingController= require("../controllers/listings.js");
+const Listing=require("../models/listings.js")
 
+router.route("/search")
+.get(wrapAsync(async(req,res)=>{
+    const{location}=req.query;
+    let allListings;
+    if(location && location.trim()!==""){
+        allListings = await Listing.find({
+          location: { $regex: location, $options: "i" },
+        });
+    }else {
+        allListings = await Listing.find({});
+      }
+
+      res.render("listings/index.ejs", { allListings });
+}))
 
 router.route("/")
 .get(wrapAsync(listingController.index))
